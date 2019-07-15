@@ -2,7 +2,7 @@ const accountModel = require("../data/models");
 
 const getAllAccounts = async (req, res) => {
   try {
-    const allAccount = await accountModel.getAll();
+    const allAccount = await accountModel.getAll(req.query);
     if (allAccount) {
       return res.status(200).json({
         status: 200,

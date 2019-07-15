@@ -1,7 +1,14 @@
 const db = require("../dbConfig");
 
-const getAll = () => {
-  return db.select().from("accounts");
+const getAll = query => {
+  const { limit } = query;
+  console.log("===========", query);
+  let dataQuery = db("accounts");
+  if (limit) {
+    return dataQuery.limit(limit);
+  }
+
+  return dataQuery;
 };
 
 const getById = id => {
