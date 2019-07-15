@@ -21,6 +21,18 @@ const getAllAccounts = async (req, res) => {
   }
 };
 
+const getById = (req, res, statusCode) => {
+  console.log(res);
+  return res.status(200).json({
+    status: statusCode,
+    data: req.account
+  });
+};
+
+const getAccountById = async (req, res) => {
+  return getById(req, res, 200);
+};
+
 const createAccount = async (req, res) => {
   const { name, budget } = req.body;
   if (req.body.name && req.body.budget) {
@@ -95,5 +107,6 @@ module.exports = {
   getAllAccounts,
   createAccount,
   updateAccount,
-  deleteAcct
+  deleteAcct,
+  getAccountById
 };

@@ -4,6 +4,12 @@ const getAll = () => {
   return db.select().from("accounts");
 };
 
+const getById = id => {
+  return db("accounts")
+    .where({ id })
+    .first();
+};
+
 const add = account => {
   db("accounts")
     .insert(account)
@@ -26,5 +32,5 @@ const remove = id => {
     .where("id", id)
     .del();
 };
-const accountModel = { getAll, add, update, remove };
+const accountModel = { getAll, add, update, remove, getById };
 module.exports = accountModel;
