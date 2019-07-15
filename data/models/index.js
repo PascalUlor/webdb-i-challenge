@@ -5,9 +5,8 @@ const getAll = () => {
 };
 
 const getById = id => {
-  return db("accounts")
-    .where({ id })
-    .first();
+  return db("accounts").where({ id });
+  // .first();
 };
 
 const add = account => {
