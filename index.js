@@ -1,5 +1,4 @@
 const app = require("./server.js");
-const accountModel = require("./data/models");
 const router = require("./routes");
 
 const PORT = process.env.PORT || 4000;

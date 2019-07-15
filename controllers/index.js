@@ -21,6 +21,30 @@ const getAllAccounts = async (req, res) => {
   }
 };
 
+const createAccount = async (req, res) => {
+  const { name, budget } = req.body;
+  if (req.body.name && req.body.budget) {
+    try {
+      const newAcct = await accountModel.add({ name, budget });
+      return res.status(201).json({
+        status: 201,
+        data: newAcct
+      });
+    } catch (err) {
+      return res.status(500).json({
+        status: 500,
+        error: "Server error."
+      });
+    }
+  } else {
+    res.status(400).json({
+      status: 400,
+      error: "Please fill in the name field"
+    });
+  }
+};
+
 module.exports = {
-  getAllAccounts
+  getAllAccounts,
+  createAccount
 };
