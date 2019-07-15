@@ -11,5 +11,20 @@ const add = account => {
       return data;
     });
 };
-const accountModel = { getAll, add };
+
+const update = (id, account) => {
+  db("accounts")
+    .where("id", id)
+    .update(account)
+    .then(data => {
+      return data;
+    });
+};
+
+const remove = id => {
+  return db("accounts")
+    .where("id", id)
+    .del();
+};
+const accountModel = { getAll, add, update, remove };
 module.exports = accountModel;

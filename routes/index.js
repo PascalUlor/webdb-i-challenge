@@ -7,4 +7,8 @@ router.get("/", Controllers.getAllAccounts);
 
 router.post("/", Controllers.createAccount);
 
+router.put("/:id", Controllers.updateAccount);
+
+router.delete("/:id", Controllers.deleteAcct);
+
 module.exports = router;
