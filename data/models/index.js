@@ -1,11 +1,15 @@
 const db = require("../dbConfig");
 
 const getAll = query => {
-  const { limit } = query;
-  console.log("===========", query);
+  const { limit, sortBy } = query;
+
   let dataQuery = db("accounts");
   if (limit) {
     return dataQuery.limit(limit);
+  }
+
+  if (sortBy) {
+    return dataQuery.orderBy(sortBy, "desc");
   }
 
   return dataQuery;
