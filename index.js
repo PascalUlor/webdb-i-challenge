@@ -3,7 +3,7 @@ const router = require("./routes");
 
 const PORT = process.env.PORT || 4000;
 
-app.use("/api", router);
+app.use("/api/accounts", router);
 
 /**
  * All wrong routes
